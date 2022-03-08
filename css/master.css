@@ -1,6 +1,10 @@
 :root {
   --main-color: #ff9800;
 }
+html {
+  scroll-behavior: smooth;
+  height: 100000px;
+}
 * {
   margin: 0;
   padding: 0;
@@ -15,7 +19,7 @@ body {
   position: fixed;
   left: -200px;
   top: 0;
-  background-color: #fff;
+  background-color: rgba(66, 66, 66, 25%);
   width: 200px;
   z-index: 1000;
   min-height: 100vh;
@@ -27,8 +31,8 @@ body {
 .settings-box .toggle-settings {
   position: absolute;
   right: -30px;
-  top: 100px;
-  background-color: #fff;
+  top: 150px;
+  background-color: rgba(66, 66, 66, 25%);
   padding: 8px 0;
   width: 30px;
   text-align: center;
@@ -41,7 +45,7 @@ body {
   padding: 10px 0;
   text-align: center;
   background-color: #eee;
-  margin: 15px;
+  margin: 10px;
 }
 .settings-box .option-box h4 {
   color: #666;
@@ -104,7 +108,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 15px;
+  margin: 0 10px;
 }
 .settings-container .rest button {
   background-color: red;
@@ -112,10 +116,65 @@ body {
   height: 35px;
   font-weight: bold;
   opacity: 1;
+  margin-top: 0;
 }
-
-/* Show Bullets */
 /* End Settings Box */
+
+/* Start Bullets */
+.bullets {
+  position: fixed;
+  right: 10px;
+  top: 30%;
+  z-index: 5;
+}
+.bullets ul {
+  display: flex;
+  flex-direction: column;
+  transition: 0.5s ease;
+  list-style: none;
+}
+.bullets ul li a {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+  border-radius: 50%;
+  border: 4px solid var(--main-color);
+  /* cursor: pointer; */
+  position: relative;
+}
+.bullets ul li a:hover,
+.bullets ul li a.active {
+  background-color: #000;
+}
+.bullets ul li a {
+  text-decoration: none;
+}
+.bullets ul li a span {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: -180px;
+  top: -15px;
+  color: #fff;
+  background-color: var(--main-color);
+  width: 150px;
+  height: 50px;
+  font-weight: bold;
+}
+.bullets ul li a span::after {
+  content: "";
+  position: absolute;
+  top: 15%;
+  right: -20px;
+  background-color: var(--main-color);
+  width: 20px;
+  height: 70%;
+  -webkit-clip-path: polygon(100% 50%, 0 0, 0 100%);
+  clip-path: polygon(100% 50%, 0 0, 0 100%);
+}
+/* End Bullets */
 
 /* Start Landing Page */
 .landing-page {
@@ -136,22 +195,24 @@ body {
 }
 .header-area {
   display: flex;
-  position: relative;
-  z-index: 2;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  z-index: 5;
   color: #fff;
-  padding: 10px;
+  background-color: rgba(66, 66, 66, 25%);
 }
-.header-area .logo {
-  width: 300px;
+.header-area .logo img {
+  width: 80px;
+  border-radius: 50%;
   padding: 15px;
-  font-weight: bold;
 }
 .header-area .links {
   text-align: right;
   list-style: none;
   width: 100%;
   padding: 15px 20px 15px 0;
-  font-size: 15px;
+  font-size: 20px;
 }
 .header-area .links li {
   display: inline-block;
