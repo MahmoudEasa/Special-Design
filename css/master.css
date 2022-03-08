@@ -1,0 +1,190 @@
+:root {
+  --main-color: #ff9800;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+/* Start Settings Box */
+.settings-box {
+  position: fixed;
+  left: -200px;
+  top: 0;
+  background-color: #fff;
+  width: 200px;
+  z-index: 1000;
+  min-height: 100vh;
+  transition: 0.5s ease;
+}
+.settings-box.open {
+  left: 0;
+}
+.settings-box .toggle-settings {
+  position: absolute;
+  right: -30px;
+  top: 100px;
+  background-color: #fff;
+  padding: 8px 0;
+  width: 30px;
+  text-align: center;
+  cursor: pointer;
+  color: var(--main-color);
+  font-size: 15px;
+}
+/* Colors */
+.settings-box .option-box {
+  padding: 10px 0;
+  text-align: center;
+  background-color: #eee;
+  margin: 15px;
+}
+.settings-box .option-box h4 {
+  color: #666;
+  font-size: 0.8rem;
+}
+.settings-box .option-box .colors-list {
+  list-style: none;
+  text-align: center;
+}
+.settings-box .option-box .colors-list li {
+  width: 15px;
+  height: 15px;
+  background-color: #333;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 20%;
+  display: inline-block;
+  margin-top: 10px;
+  transition: 0.5s ease;
+}
+.settings-box .option-box .colors-list li.active,
+.settings-box .option-box .colors-list li:hover {
+  opacity: 1;
+  border: 2px solid #fff;
+  width: 20px;
+  height: 20px;
+}
+.settings-box .option-box .colors-list li:first-child {
+  background-color: #ff9800;
+}
+.settings-box .option-box .colors-list li:nth-child(2) {
+  background-color: #e91e63;
+}
+.settings-box .option-box .colors-list li:nth-child(3) {
+  background-color: #009688;
+}
+.settings-box .option-box .colors-list li:nth-child(4) {
+  background-color: #03a9f4;
+}
+.settings-box .option-box .colors-list li:nth-child(5) {
+  background-color: #4caf50;
+}
+/* Random Backgrounds */
+.settings-container button {
+  background-color: var(--main-color);
+  color: #fff;
+  padding: 4px 10px 4px;
+  width: 50px;
+  font-size: 12px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 50%;
+}
+.settings-container button.active {
+  opacity: 1;
+}
+.settings-container .rest {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 15px;
+}
+.settings-container .rest button {
+  background-color: red;
+  width: 100%;
+  height: 35px;
+  font-weight: bold;
+  opacity: 1;
+}
+
+/* Show Bullets */
+/* End Settings Box */
+
+/* Start Landing Page */
+.landing-page {
+  min-height: 100vh;
+  background-image: url(../imgs/01.jpg);
+  background-size: cover;
+  position: relative;
+}
+.landing-page .overlay {
+  background-color: #000;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 30%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+.header-area {
+  display: flex;
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  padding: 10px;
+}
+.header-area .logo {
+  width: 300px;
+  padding: 15px;
+  font-weight: bold;
+}
+.header-area .links {
+  text-align: right;
+  list-style: none;
+  width: 100%;
+  padding: 15px 20px 15px 0;
+  font-size: 15px;
+}
+.header-area .links li {
+  display: inline-block;
+  margin-left: 10px;
+}
+.header-area .links li a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.5s ease;
+}
+.header-area .links li a:hover,
+.header-area .links li a.active {
+  color: var(--main-color);
+}
+.introduction-text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+  color: #fff;
+  width: 80%;
+}
+.introduction-text h1 {
+  font-size: 35px;
+  margin: 0 0 12px;
+}
+.introduction-text h1 span {
+  color: var(--main-color);
+}
+.introduction-text p {
+  line-height: 1.6;
+  font-size: 20px;
+}
+/* End Landing Page */
