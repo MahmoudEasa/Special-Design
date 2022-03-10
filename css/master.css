@@ -3,7 +3,6 @@
 }
 html {
   scroll-behavior: smooth;
-  height: 100000px;
 }
 * {
   margin: 0;
@@ -12,6 +11,12 @@ html {
 }
 body {
   font-family: "Open Sans", sans-serif;
+}
+.container {
+  width: 1170px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: auto;
 }
 
 /* Start Settings Box */
@@ -140,15 +145,13 @@ body {
   margin: 10px;
   border-radius: 50%;
   border: 4px solid var(--main-color);
-  /* cursor: pointer; */
   position: relative;
+  text-decoration: none;
+  transition: 0.5s ease;
 }
 .bullets ul li a:hover,
 .bullets ul li a.active {
   background-color: #000;
-}
-.bullets ul li a {
-  text-decoration: none;
 }
 .bullets ul li a span {
   display: none;
@@ -197,6 +200,8 @@ body {
   display: flex;
   align-items: center;
   position: fixed;
+  top: 0%;
+  left: 0;
   width: 100%;
   z-index: 5;
   color: #fff;
@@ -249,3 +254,253 @@ body {
   font-size: 20px;
 }
 /* End Landing Page */
+
+/* Start About me */
+.about-me {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  display: flex;
+}
+.about-me .info-box {
+  flex: 1;
+  padding: 30px 30px 30px 0;
+}
+.about-me .info-box h2 {
+  font-weight: bold;
+  font-size: 30px;
+  color: var(--main-color);
+  margin-bottom: 10px;
+}
+.about-me .info-box p {
+  line-height: 1.8;
+  color: #767676;
+  text-align: justify;
+}
+.about-me .image-box {
+  flex: 1;
+  text-align: center;
+}
+.about-me .image-box img {
+  width: 250px;
+}
+/* End About me */
+
+/* Start My Skills */
+.skills {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #eee;
+  width: 100%;
+}
+.skills h2 {
+  font-weight: bold;
+  font-size: 30px;
+  color: var(--main-color);
+  margin-bottom: 50px;
+  text-align: center;
+}
+.skills .skill-box {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  margin: 15px 0;
+  height: 40px;
+}
+.skills .skill-box .skill-name {
+  font-weight: bold;
+  width: 150px;
+  text-align: center;
+  line-height: 30px;
+}
+.skills .skill-box .skill-progress {
+  height: 30px;
+  width: 100%;
+  background-color: #efefef;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.skills .skill-box .skill-progress span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--main-color);
+  width: 0;
+  height: 100%;
+  transition: 0.5s ease;
+}
+/* End My Skills */
+
+/* Start Gallery */
+.gallery {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.gallery h2 {
+  font-weight: bold;
+  font-size: 30px;
+  color: var(--main-color);
+  margin-bottom: 50px;
+  text-align: center;
+}
+.gallery .images-box {
+  text-align: center;
+}
+.gallery .images-box img {
+  width: 200px;
+  padding: 3px;
+  margin: 5px;
+  background-color: #f6f6f6;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+.popup-overlay {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+.popup-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  padding: 20px;
+  border: 2px solid #ccc;
+  position: relative;
+}
+.popup-box img {
+  width: 600px;
+  margin-top: 10px;
+}
+.popup-box h2 {
+  font-weight: bold;
+  font-size: 30px;
+  color: var(--main-color);
+  text-align: center;
+  margin: 10px 0;
+}
+.close-popup {
+  position: absolute;
+  top: -25px;
+  right: -25px;
+  color: #fff;
+  background-color: var(--main-color);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+/* End Gallery */
+
+/* Start Timeline */
+.timeline {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #eee;
+}
+.timeline .timeline-content {
+  position: relative;
+  overflow: hidden;
+}
+.timeline .timeline-content::before {
+  content: "";
+  width: 2px;
+  height: 100%;
+  background-color: var(--main-color);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -1px;
+}
+.timeline .timeline-content .year {
+  margin: 20px auto;
+  width: 50px;
+  background-color: var(--main-color);
+  position: relative;
+  z-index: 2;
+  border-radius: 4px;
+  text-align: center;
+  color: #fff;
+  padding: 2px 5px;
+  font-weight: bold;
+}
+.timeline .timeline-content .left,
+.timeline .timeline-content .right {
+  width: calc(50% - 25px);
+  margin-bottom: 40px;
+  position: relative;
+}
+.timeline .timeline-content .left {
+  float: left;
+}
+.timeline .timeline-content .left::before {
+  right: -35px;
+}
+.timeline .timeline-content .right {
+  float: right;
+  /* margin-top: 100px; */
+}
+.timeline .timeline-content .right::before {
+  left: -35px;
+}
+.timeline .timeline-content .left::before,
+.timeline .timeline-content .right::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  background-color: #fff;
+  border: 3px solid var(--main-color);
+  position: absolute;
+  top: 20px;
+  border-radius: 50%;
+}
+.timeline .timeline-content .content {
+  padding: 20px;
+  background-color: #fff;
+}
+.timeline .timeline-content .content h3 {
+  font-weight: bold;
+  color: var(--main-color);
+  margin-bottom: 10px;
+}
+.timeline .timeline-content .content p {
+  color: #666;
+  line-height: 1.8;
+  text-align: justify;
+}
+.clearfix {
+  clear: both;
+}
+.timeline .timeline-content .left .content::before,
+.timeline .timeline-content .right .content::before {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  border-width: 10px;
+  width: 0;
+  height: 0;
+  top: 20px;
+}
+.timeline .timeline-content .left .content::before {
+  border-color: transparent transparent transparent var(--main-color);
+  right: -20px;
+}
+.timeline .timeline-content .right .content::before {
+  border-color: transparent var(--main-color) transparent transparent;
+  left: -20px;
+}
+/* End Timeline */

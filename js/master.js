@@ -26,6 +26,12 @@ let bulletsUl = document.querySelector(".bullets ul");
 let spanBullets = document.querySelectorAll(".bullets ul li a span");
 // Select Li Bullets
 let liBullets = document.querySelectorAll(".bullets ul li a");
+// Select Skills
+let skills = document.querySelectorAll(".skills");
+// Select Skills Span Progress
+let progressSpan = document.querySelectorAll(".skills .skill-box .skill-progress span");
+// Select My Gallery Images
+let myGallery = document.querySelectorAll(".gallery .images-box img");
 
 
 // localStorage.clear()
@@ -201,4 +207,70 @@ function toggelBg(){
 toggelBg();
 // End Landing Page
 
+// Start About Me
+
+// End About Me
+
+// Start My Skills
+window.addEventListener("scroll", progSpan);
+function progSpan() {
+    for(let item of progressSpan) {
+        const rect = item.getBoundingClientRect()
+        if (rect.top > -100 && rect.top < 800) {
+            item.style.width = item.getAttribute("data-progress");
+        } else {
+            item.style.width = "0";
+        }
+    }
+}
+// End My Skills
+
+// Start My Gallery
+// Creat Popup With The Image
+for(let item of myGallery) {
+    item.addEventListener("click", (e)=>{
+        // Create Overlay Element
+        let overlay = document.createElement("div");
+        // Add Class To Overlay
+        overlay.className = "popup-overlay";
+        // Append Overlay To The Body
+        document.body.appendChild(overlay);
+        // Create The Popup Box
+        let popupBox = document.createElement("div");
+        // Add Class To The Popup Box
+        popupBox.className = "popup-box";
+        // Appen Popup Box To Overlay
+        overlay.appendChild(popupBox);
+        // Create The Image
+        let popupImage = document.createElement("img");
+        // Set Image Source
+        popupImage.src = item.src;
+        // Appen Popup Image To Popup Box
+        popupBox.appendChild(popupImage);
+        // Add Title To Image
+        if(item.alt !== null) {
+            // Create h2 Element
+            let h2Ele = document.createElement("h2");
+            h2Ele.innerHTML = item.getAttribute("alt");
+            popupBox.prepend(h2Ele);
+            console.log(item.getAttribute("alt"))
+        }
+        // Add Button To Close The Popup
+        let buttonClose = document.createElement("div");
+        buttonClose.innerHTML = "X";
+        buttonClose.className = "close-popup";
+        popupBox.prepend(buttonClose);
+        buttonClose.addEventListener("click", ()=>{
+            overlay.remove();
+        });
+        document.addEventListener("keyup", (e)=>{
+            if(e.key === "Escape") {
+                overlay.remove();
+            }
+        });
+
+    });
+}
+
+// End My Gallery
 
