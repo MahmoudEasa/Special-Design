@@ -22,10 +22,6 @@ let showBullets = document.querySelectorAll(".show-bullets button");
 let resetOPt = document.querySelector(".rest button");
 // Select Bullets
 let bulletsUl = document.querySelector(".bullets ul");
-// Select Span Bullets
-let spanBullets = document.querySelectorAll(".bullets ul li a span");
-// Select Li Bullets
-let liBullets = document.querySelectorAll(".bullets ul li a");
 // Select Skills
 let skills = document.querySelectorAll(".skills");
 // Select Skills Span Progress
@@ -33,8 +29,6 @@ let progressSpan = document.querySelectorAll(".skills .skill-box .skill-progress
 // Select My Gallery Images
 let myGallery = document.querySelectorAll(".gallery .images-box img");
 
-
-// localStorage.clear()
 
 
 
@@ -174,27 +168,10 @@ if(showLocal) {
     });
 // End Settings Box
 
-// Start Bullets
-// Mouseover
-for(let item of liBullets) {
-    // Mouseover Show Span Bullets
-    item.addEventListener("mouseover", ()=>{
-        item.firstChild.style.display = "inline-flex"
-    });
-    // Mouseout Do Not Show Span Bullets
-    item.addEventListener("mouseout", ()=>{
-        for(let item of spanBullets) {
-            item.style.display = "none"
-        }
-    });
-}
-// End Bullets
-
 // Background Landing Page
 function toggelBg(){
     if (backgroundToggle === true) {
         backgroundInterval = setInterval(()=>{
-            // Get Random Num
             let num = Math.floor(Math.random() * imgArray.length);
             
             // Change Background Image Url
