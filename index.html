@@ -46,32 +46,34 @@
         <!-- Start Bullets -->
         <div class="bullets">
             <ul>
-                <li><a href="#" class="active"><span>Home</span></a></li>
-                <li><a href="#about"><span>About Me</span></a></li>
-                <li><a href="#skills"><span>My Skills</span></a></li>
-                <li><a href="#gallery"><span>My Gallery</span></a></li>
-                <li><a href="#timeline"><span>Timeline</span></a></li>
-                <li><a href="#features"><span>Features</span></a></li>
-                <li><a href="#testimonials"><span>Testimonials</span></a></li>
+                <li data-active="home"><a href="#home" class="active"><span>Home</span></a></li>
+                <li data-active="about"><a href="#about"><span>About Me</span></a></li>
+                <li data-active="skills"><a href="#skills"><span>My Skills</span></a></li>
+                <li data-active="gallery"><a href="#gallery"><span>My Gallery</span></a></li>
+                <li data-active="timeline"><a href="#timeline"><span>Timeline</span></a></li>
+                <li data-active="features"><a href="#features"><span>Features</span></a></li>
+                <li data-active="testimonials"><a href="#testimonials"><span>Testimonials</span></a></li>
+                <li data-active="contact"><a href="#contact"><span>Contact Me</span></a></li>
         </ul>
         </div>
         <!-- Start Bullets -->
         
         <!-- Start Landing Page -->
-        <div class="landing-page">
+        <section id="home" class="landing-page">
             <div class="overlay"></div>
             <!-- Start Header -->
             <div class="container">
                 <div class="header-area">
                     <div class="logo"><img src="imgs/profile_logo_LinkedIn1.jpg" alt="" srcset=""></div>
                     <ul class="links">
-                        <li><a href="#" class="active">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#skills">Skills</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
-                        <li><a href="#timeline">Timeline</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li data-active="home"><a href="#home" class="active">Home</a></li>
+                        <li data-active="about"><a href="#about">About</a></li>
+                        <li data-active="skills"><a href="#skills">Skills</a></li>
+                        <li data-active="gallery"><a href="#gallery">Gallery</a></li>
+                        <li data-active="timeline"><a href="#timeline">Timeline</a></li>
+                        <li data-active="features"><a href="#features">Features</a></li>
+                        <li data-active="testimonials"><a href="#testimonials">Testimonials</a></li>
+                        <li data-active="contact"><a href="#contact">Contact Me</a></li>
                     </ul>
                 </div>
             </div>
@@ -80,11 +82,11 @@
                 <h1>We Are <span>Creative</span> Agency</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque ea similique nobis perferendis vitae ipsum?</p>
             </div>
-        </div>
+        </section>
         <!-- End Landing Page -->
 
         <!-- Start About Me -->
-        <div id="about" class="container">
+        <section id="about" class="container">
             <div class="about-me">
                 <div class="info-box">
                     <h2>About Me</h2>
@@ -94,10 +96,10 @@
                     <img src="imgs/about-us.jpg" alt="">
                 </div>
             </div>
-        </div>
+        </section>
         <!-- End About Me -->
         <!-- Start My Skills -->
-        <div id="skills" class="skills">
+        <section id="skills" class="skills">
                 <div class="container">
                 <h2>My Skills</h2>
                 <div class="skill-box">
@@ -149,11 +151,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
         <!-- End My Skills -->
 
         <!-- Start Gallery -->
-            <div id="gallery" class="gallery">
+            <section id="gallery" class="gallery">
                 <div class="container">
                     <h2>My Gallery</h2>
                     <div class="images-box">
@@ -169,11 +171,11 @@
                         <img src="imgs/10.jpg" alt="Image Ten">
                     </div>
                 </div>
-            </div>
+            </section>
         <!-- End Gallery -->
 
         <!-- Start Timeline -->
-        <div id="timeline" class="timeline">
+        <section id="timeline" class="timeline">
             <div class="container">
                 <div class="timeline-content">
                     <div class="year">2018</div>
@@ -207,11 +209,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
         <!-- End Timeline -->
 
         <!-- Start Features -->
-        <div id="features" class="features">
+        <section id="features" class="features">
             <h2>My Features</h2>
             <div class="container">
                 <div class="feat-box">
@@ -245,11 +247,11 @@
                     <p>I Am professional marketeers, I will do anything you imagine in no time.</p>
                 </div>
             </div>
-        </div>
+        </section>
         <!-- End Features -->
 
         <!-- Start Testimonials -->
-        <div id="testimonials" class="testimonials">
+        <section id="testimonials" class="testimonials">
             <div class="container">
                 <h2>Testimonials</h2>
                 <div class="content">
@@ -279,8 +281,29 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
         <!-- End Testimonials -->
+        
+        <!-- Start Contact Me -->
+        <section id="contact">
+            <div class="overlay"></div>
+            <div class="container">
+                <h2>Contact Me</h2>
+                <form action="">
+                    <div class="left">
+                        <input type="text" placeholder="Your Name" name="username">
+                        <input type="text" placeholder="Your Phone" name="phone">
+                        <input type="email" placeholder="Your Email" name="email">
+                        <input type="text" placeholder="Subject" name="subject">
+                    </div>
+                    <div class="right">
+                        <textarea name="message" placeholder="Your Message"></textarea>
+                        <input type="submit" value="Send">
+                    </div>
+                </form>
+            </div>
+        </section>
+        <!-- End Contact Me -->
         <script src="https://kit.fontawesome.com/f4c05dff65.js" crossorigin="anonymous"></script>
         <script src="JS/master.js"></script>
     </body>

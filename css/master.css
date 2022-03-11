@@ -12,6 +12,9 @@ html {
 body {
   font-family: "Open Sans", sans-serif;
 }
+section {
+  min-height: 70vh;
+}
 .container {
   width: 1170px;
   padding-left: 15px;
@@ -122,6 +125,9 @@ body {
   font-weight: bold;
   opacity: 1;
   margin-top: 0;
+}
+.settings-container .rest button:hover {
+  background-color: rgba(255, 0, 0, 0.822);
 }
 /* End Settings Box */
 
@@ -267,6 +273,8 @@ body {
   padding-top: 50px;
   padding-bottom: 50px;
   display: flex;
+  align-items: center;
+  min-height: 70vh;
 }
 .about-me .info-box {
   flex: 1;
@@ -298,6 +306,8 @@ body {
   padding-bottom: 50px;
   background-color: #eee;
   width: 100%;
+  display: flex;
+  align-items: center;
 }
 .skills h2 {
   font-weight: bold;
@@ -343,6 +353,8 @@ body {
 .gallery {
   padding-top: 50px;
   padding-bottom: 50px;
+  display: flex;
+  align-items: center;
 }
 .gallery h2 {
   font-weight: bold;
@@ -561,6 +573,8 @@ body {
 .testimonials {
   position: relative;
   padding: 80px 0;
+  display: flex;
+  align-items: center;
 }
 .testimonials::before {
   content: "";
@@ -628,3 +642,112 @@ body {
   font-style: italic;
 }
 /* End Testimonials */
+
+/* Start Contact Me */
+#contact {
+  background-image: url("../imgs/contact.png");
+  background-size: cover;
+  padding: 80px 0;
+  position: relative;
+}
+#contact .container {
+  position: relative;
+  z-index: 1;
+}
+#contact .overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+#contact h2 {
+  font-weight: bold;
+  font-size: 30px;
+  color: var(--main-color);
+  margin-bottom: 60px;
+  text-align: center;
+}
+#contact form {
+  display: flex;
+  justify-content: space-between;
+  max-width: 800px;
+  margin: auto;
+}
+#contact form .left {
+  width: 49%;
+}
+#contact form .right {
+  width: 49%;
+}
+#contact form input:not([type="submit"]),
+#contact form textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  background-color: rgba(218, 218, 218, 0.19);
+}
+#contact form input:not([type="submit"]):focus,
+#contact form textarea:focus {
+  outline: 1px solid var(--main-color);
+}
+#contact form input {
+  height: 40px;
+}
+#contact form textarea {
+  height: 150px;
+}
+#contact form textarea:focus::-webkit-input-placeholder,
+#contact form input:not([type="submit"]):focus::-webkit-input-placeholder {
+  opacity: 0;
+  transition: 0.5s ease;
+}
+#contact form textarea:focus:-ms-input-placeholder,
+#contact form input:not([type="submit"]):focus:-ms-input-placeholder {
+  opacity: 0;
+  transition: 0.5s ease;
+}
+#contact form textarea:focus::placeholder,
+#contact form input:not([type="submit"]):focus::placeholder {
+  opacity: 0;
+  transition: 0.5s ease;
+}
+#contact form input[type="submit"] {
+  padding: 10px;
+  width: 100%;
+  border-color: transparent;
+  background-color: var(--main-color);
+  color: #fff;
+  cursor: pointer;
+}
+/* End Contact Me */
+
+/* Start Grid System */
+@media (min-width: 576px) {
+  /* Small Devices => Landscape Phones */
+  .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  /* Medium Devices => Tablets */
+  .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  /* Desktops */
+  .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  /* Large Screens */
+  .container {
+    max-width: 1140px;
+  }
+}
+/* End Grid System */

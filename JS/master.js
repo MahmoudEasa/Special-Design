@@ -1,4 +1,10 @@
 // Global Variables
+// Select Sections
+let sections = document.querySelectorAll("section");
+// Select Navbar Li Links Active
+let liLinks = document.querySelectorAll(".landing-page ul li");
+// Select Bullets Active
+let bulletsActive = document.querySelectorAll(".bullets ul li");
 // Select Landing Page Element
 let landPag = document.querySelector(".landing-page");
 // Get Array Of Images
@@ -83,6 +89,45 @@ if(showLocal) {
     }
 }
 
+// Remove Hash From URL
+history.pushState("", document.title, window.location.pathname + window.location.search);
+
+
+// Global Functions
+// Handel Active links
+function handelActive(e) {
+    // Remove Class Active From All Li
+    e.target.parentElement.querySelectorAll(".active").forEach(element => {
+        element.classList.remove("active");
+    });
+    // Add Class Active To Li
+    e.target.classList.add("active");
+}
+
+// Add Active To Nav bar Links And Bullets
+window.addEventListener("scroll", addActiveLinks);
+    function addActiveLinks() {
+        function addActive(ele) {
+            for(let sec of sections) {
+            for(let e of ele) {
+                let rect = sec.getBoundingClientRect();
+                if(rect.top > -100 && rect.top < 250){
+                    if(sec.getAttribute("id") === e.getAttribute("data-active")){
+                        for(let i of ele) {
+                            i.firstChild.classList.remove("active");
+                        }
+                        e.firstChild.classList.add("active");
+                    }
+                }
+            }
+        }
+    }
+    addActive(liLinks);
+    addActive(bulletsActive);
+}
+addActiveLinks();
+
+
 
 
 // Start Landing Page
@@ -102,16 +147,14 @@ if(showLocal) {
         faGear.classList.remove("fa-spin");
     }
     })
-    
+
     // Switch Colors
     for (let item of colorList) {
-        item.addEventListener("click", ()=>{
-            // Remove Class Active From All Li
-            for (let item of colorList){
-                item.classList.remove("active");
-            }
-            // Add Class Active To Li
-            item.classList.add("active");
+        item.addEventListener("click", (e)=>{
+
+            // Handel Active links
+            handelActive(e);
+
             // Get All Data Colors
             let rootColor = item.getAttribute("data-color");
             // Set All Colors To All The Web
@@ -124,18 +167,17 @@ if(showLocal) {
     // Random Backgrounds
     for(let item of randomBg) {
         item.addEventListener("click", (e)=> {
-            for(let item of randomBg) {
-                item.classList.remove("active");
-            }
             if (item.innerHTML == "Yes") {
                 backgroundToggle = true;
                 toggelBg();
             } else {
                 backgroundToggle = false;
-                // landPag.style.backgroundImage = `url(imgs/01.jpg)`;
                 clearInterval(backgroundInterval);
             }
-            e.target.classList.add("active");
+
+            // Handel Active
+            handelActive(e);
+
             // Add Active To Local Storage
             localStorage.setItem("randomActive", e.target.innerHTML);
             localStorage.setItem("backgroundToggle", backgroundToggle);
@@ -145,11 +187,11 @@ if(showLocal) {
 
     // Show Bullets
     for(let item of showBullets) {
-        item.addEventListener("click", ()=>{
-            for(let item of showBullets) {
-                item.classList.remove("active");
-            }
-            item.classList.add("active");
+        item.addEventListener("click", (e)=>{
+            
+            // Handel Active
+            handelActive(e);
+
             if(item.innerHTML == "Yes"){
                 bulletsUl.style.display = "flex";
             } else {
@@ -161,9 +203,16 @@ if(showLocal) {
 
     // Reset Options
     resetOPt.addEventListener("click", ()=>{
-        localStorage.clear();
-        // backgroundToggle = true;
-        // toggelBg();
+        
+        // If I Do not keep An Important Thing In Local Storage
+        // localStorage.clear();
+        
+        // Else I Choose The Things I Oant To Delete
+        localStorage.removeItem("BackgroundIMG");
+        localStorage.removeItem("randomActive");
+        localStorage.removeItem("backgroundToggle");
+        localStorage.removeItem("Show-Bullets");
+        localStorage.removeItem("colors");
         window.location.reload();
     });
 // End Settings Box
@@ -200,6 +249,7 @@ function progSpan() {
         }
     }
 }
+progSpan();
 // End My Skills
 
 // Start My Gallery
@@ -248,6 +298,5 @@ for(let item of myGallery) {
 
     });
 }
-
 // End My Gallery
 
