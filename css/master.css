@@ -196,6 +196,14 @@ section {
   background-size: cover;
   position: relative;
 }
+.landing-page .header-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  background-color: rgba(66, 66, 66, 25%);
+  width: 100%;
+}
 .landing-page .overlay {
   background-color: #000;
   position: absolute;
@@ -209,13 +217,8 @@ section {
 .header-area {
   display: flex;
   align-items: center;
-  position: fixed;
-  top: 0%;
-  left: 0;
-  width: 100%;
-  z-index: 5;
   color: #fff;
-  background-color: rgba(66, 66, 66, 25%);
+  width: 100%;
 }
 .header-area .logo img {
   width: 50px;
@@ -225,11 +228,15 @@ section {
   background-color: var(--main-color);
   border-radius: 50%;
 }
+.header-area .links-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
 .header-area .links {
   text-align: right;
   list-style: none;
-  width: 100%;
-  padding: 15px 20px 15px 0;
   font-size: 20px;
 }
 .header-area .links li {
@@ -245,6 +252,31 @@ section {
 .header-area .links li a.active {
   color: var(--main-color);
 }
+.header-area .toggle-menu {
+  background: none;
+  border: none;
+  width: 35px;
+  cursor: pointer;
+  display: none;
+  position: relative;
+  outline: none;
+}
+.header-area .toggle-menu.menu-active::after {
+  content: "";
+  position: absolute;
+  top: -28px;
+  left: 0;
+  display: block;
+  height: 45px;
+  border: 17.5px solid;
+  border-color: transparent transparent rgba(0, 0, 0, 0.7) transparent;
+}
+.header-area .toggle-menu span {
+  display: block;
+  background-color: #fff;
+  height: 4px;
+  margin-bottom: 4px;
+}
 .introduction-text {
   position: absolute;
   left: 50%;
@@ -258,6 +290,11 @@ section {
 .introduction-text h1 {
   font-size: 35px;
   margin: 0 0 12px;
+}
+@media (max-width: 575px) {
+  .introduction-text h1 {
+    font-size: 26px;
+  }
 }
 .introduction-text h1 span {
   color: var(--main-color);
@@ -275,6 +312,12 @@ section {
   display: flex;
   align-items: center;
   min-height: 70vh;
+}
+@media (max-width: 575px) {
+  .about-me {
+    display: block;
+    text-align: center;
+  }
 }
 .about-me .info-box {
   flex: 1;
@@ -726,6 +769,15 @@ section {
 /* End Contact Me */
 
 /* Start Grid System */
+@media (max-width: 575px) {
+  .container {
+    width: 90%;
+  }
+  /* .about-me {
+    display: block;
+    text-align: center;
+  } */
+}
 @media (min-width: 576px) {
   /* Small Devices => Landscape Phones */
   .container {
@@ -736,6 +788,29 @@ section {
   /* Medium Devices => Tablets */
   .container {
     max-width: 720px;
+  }
+}
+@media (max-width: 991px) {
+  .header-area .links {
+    display: none;
+  }
+  .header-area .links.open {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 85px;
+    width: 100%;
+    border-radius: 10px;
+  }
+  .header-area .links.open li {
+    margin: 15px 0;
+    display: block;
+    text-align: center;
+  }
+  .header-area .toggle-menu {
+    display: block;
   }
 }
 @media (min-width: 992px) {

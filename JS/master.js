@@ -3,6 +3,12 @@
 let sections = document.querySelectorAll("section");
 // Select Navbar Li Links Active
 let liLinks = document.querySelectorAll(".landing-page ul li");
+// Select Links Menu
+let linksMenu = document.querySelector(".header-area .links");
+// Select Toggle Menu
+let toggleMenu = document.querySelector(".header-area .toggle-menu");
+// Select Toggle Menu After
+let afterMenue = document.querySelector(".header-area .toggle-menu");
 // Select Bullets Active
 let bulletsActive = document.querySelectorAll(".bullets ul li");
 // Select Landing Page Element
@@ -128,20 +134,52 @@ window.addEventListener("scroll", addActiveLinks);
 addActiveLinks();
 
 
-
+// Toggle Menus
+function toggelM(ele) {
+// Stop Propagation
+    ele.addEventListener("click", (e)=> {
+        e.stopPropagation();
+    });
+    document.addEventListener("click", (e)=> {
+        if(e.target != ele) {
+            ele.classList.remove("open");
+            afterMenue.classList.remove("menu-active");
+        }
+    });
+}
+    
+    
 
 // Start Landing Page
+// Toggle Menu Bar
+toggleMenu.addEventListener("click", ()=>{
+    linksMenu.classList.toggle("open");
+    afterMenue.classList.toggle("menu-active");
+});
+// Click Anywhere Outside Menu And Toggle Button
+toggelM(toggleMenu);
+toggelM(linksMenu);
+
+
 // Start Settings Box
     // Toggel Spin Class On Icon
     toggleSet.addEventListener("click", ()=>{
         faGear.classList.toggle("fa-spin");
         setBox.classList.toggle("open");
     });
-    
+    toggelM(toggleSet);
+    toggelM(setBox);
     // Close The Box When I Press Escape
     document.addEventListener("keyup", (e) =>{
-    // console.log(e);
-    if (e.key === "Escape")
+        if (e.key === "Escape")
+        {
+            setBox.classList.remove("open");
+            faGear.classList.remove("fa-spin");
+        }
+    })
+    // Close The Box When I click Anywhere Outside
+    document.addEventListener("click", (e) =>{
+    if (e.target != setBox && e.target != faGear)
     {
         setBox.classList.remove("open");
         faGear.classList.remove("fa-spin");
@@ -207,7 +245,7 @@ addActiveLinks();
         // If I Do not keep An Important Thing In Local Storage
         // localStorage.clear();
         
-        // Else I Choose The Things I Oant To Delete
+        // Else I Choose The Things I Want To Delete
         localStorage.removeItem("BackgroundIMG");
         localStorage.removeItem("randomActive");
         localStorage.removeItem("backgroundToggle");
@@ -258,6 +296,9 @@ for(let item of myGallery) {
     item.addEventListener("click", (e)=>{
         // Create Overlay Element
         let overlay = document.createElement("div");
+        overlay.addEventListener("click", ()=> {
+            overlay.remove();
+        });
         // Add Class To Overlay
         overlay.className = "popup-overlay";
         // Append Overlay To The Body
@@ -280,7 +321,6 @@ for(let item of myGallery) {
             let h2Ele = document.createElement("h2");
             h2Ele.innerHTML = item.getAttribute("alt");
             popupBox.prepend(h2Ele);
-            console.log(item.getAttribute("alt"))
         }
         // Add Button To Close The Popup
         let buttonClose = document.createElement("div");
@@ -295,7 +335,9 @@ for(let item of myGallery) {
                 overlay.remove();
             }
         });
-
+        popupBox.addEventListener("click", (e)=> {
+            e.stopPropagation();
+        });
     });
 }
 // End My Gallery
