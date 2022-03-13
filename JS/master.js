@@ -1,6 +1,8 @@
 // Global Variables
 // Select Sections
 let sections = document.querySelectorAll("section");
+// Select Header Container
+let headerContainer = document.querySelector(".landing-page .header-container");
 // Select Navbar Li Links Active
 let liLinks = document.querySelectorAll(".landing-page ul li");
 // Select Links Menu
@@ -30,6 +32,8 @@ let randomBg = document.querySelectorAll(".random-bg button");
     let backgroundInterval;
 // Select Show Bullets Element
 let showBullets = document.querySelectorAll(".show-bullets button");
+// Select Scrolling Nav Element
+let scrollingNav = document.querySelectorAll(".scrolling-nav button");
 // Select Reset Options Element
 let resetOPt = document.querySelector(".rest button");
 // Select Bullets
@@ -94,6 +98,24 @@ if(showLocal) {
         }
     }
 }
+
+// Add Scrolling Nav To LocalStorage
+if(localStorage.getItem("Scrolling-Nav")){
+    // Remove All Active On Button
+    for(let item of scrollingNav) {
+        item.classList.remove("active");
+        if(item.innerHTML == localStorage.getItem("Scrolling-Nav")) {
+            item.classList.add("active");
+        }
+        if(localStorage.getItem("Scrolling-Nav") === "Yes") {
+            headerContainer.style.position = "fixed";
+        } else {
+            headerContainer.style.position = "relative";
+        }
+    }
+
+}
+
 
 // Remove Hash From URL
 history.pushState("", document.title, window.location.pathname + window.location.search);
@@ -189,10 +211,8 @@ toggelM(linksMenu);
     // Switch Colors
     for (let item of colorList) {
         item.addEventListener("click", (e)=>{
-
             // Handel Active links
             handelActive(e);
-
             // Get All Data Colors
             let rootColor = item.getAttribute("data-color");
             // Set All Colors To All The Web
@@ -212,10 +232,8 @@ toggelM(linksMenu);
                 backgroundToggle = false;
                 clearInterval(backgroundInterval);
             }
-
             // Handel Active
             handelActive(e);
-
             // Add Active To Local Storage
             localStorage.setItem("randomActive", e.target.innerHTML);
             localStorage.setItem("backgroundToggle", backgroundToggle);
@@ -239,18 +257,28 @@ toggelM(linksMenu);
         });
     }
 
+    // Scrolling Nav
+    for(let item of scrollingNav) {
+        item.addEventListener("click", (e)=> {
+            handelActive(e);
+            if(item.innerHTML === "Yes") {
+                headerContainer.style.position = "fixed";
+            }else {
+                headerContainer.style.position = "relative";
+            }
+            localStorage.setItem("Scrolling-Nav", item.innerHTML);
+        });
+    }
+
     // Reset Options
     resetOPt.addEventListener("click", ()=>{
         
         // If I Do not keep An Important Thing In Local Storage
-        // localStorage.clear();
+        localStorage.clear();
         
         // Else I Choose The Things I Want To Delete
-        localStorage.removeItem("BackgroundIMG");
-        localStorage.removeItem("randomActive");
-        localStorage.removeItem("backgroundToggle");
-        localStorage.removeItem("Show-Bullets");
-        localStorage.removeItem("colors");
+        // localStorage.removeItem("BackgroundIMG");
+        // localStorage.removeItem("randomActive");
         window.location.reload();
     });
 // End Settings Box
